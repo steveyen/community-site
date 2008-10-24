@@ -26,7 +26,7 @@
   The daemon has no configuration file, just a few command line options, 
   only 3 or 4 of which you'll likely use:
 
-  .answerre = ./memcached -d -m 2048 -l 10.0.0.40 -p 11211
+  %pre ./memcached -d -m 2048 -l 10.0.0.40 -p 11211
 
   This starts memcached up as a daemon, using 2GB of memory, 
   and listening on IP 10.0.0.40, port 11211. 
@@ -48,13 +48,13 @@
   %h3
     Perl Example (see APIs page)
 
-  .answerre
-    :plain
+  %pre
+    :preserve
       sub get_foo_object {
         my $foo_id = int(shift);
         my $obj = $::MemCache->get("foo:$foo_id");
         return $obj if $obj;
-
+        
         $obj = $::db->selectrow_hashref("SELECT .... FROM foo f, bar b ".
                                         "WHERE ... AND f.fooid=$foo_id");
         $::MemCache->set("foo:$foo_id", $obj);

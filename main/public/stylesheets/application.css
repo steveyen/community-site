@@ -1,8 +1,18 @@
 @import url(blueprint/screen.css);
 body {
-  background: #999; }
-  body #container {
-    background: white; }
+  font-family: verdana;
+  background: #efefef; }
+
+body .container {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  padding-left: 1em;
+  padding-right: 1em; }
 
 .question {
+  margin-top: 5px;
   font-weight: bold; }
+
+.answer {
+  margin-left: 20px; }
