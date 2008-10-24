@@ -1,0 +1,27 @@
+!!! XML
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+  %head
+    %title= @page_title || 'Community Site'
+    = stylesheet_link_tag 'application.css', :media => 'screen, projection'
+    = stylesheet_link_tag 'application-print.css', :media => 'print'
+    /[if IE]
+      = stylesheet_link_tag 'application-ie.css', :media => 'screen, projection'
+    = yield :more_head
+  %body
+    #container
+      #header
+        #header_title memcached
+        #header_sub the missing memcached manual
+ 
+        %ul
+          %li= link_to 'Home', home_path
+          %li= link_to 'About', :controller => '/about'
+          %li= link_to 'Download', :controller => '/download'
+          %li= link_to 'Documentation', :controller => '/wiki'
+          %li= link_to 'Mailing List', :controller => '/mailing_list'
+ 
+      #content= yield
+ 
+      #footer
+        Site designed, created and maintained by friends of memcached.

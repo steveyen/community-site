@@ -12,4 +12,20 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+
+  caches_page :index
+ 
+  def initialize
+    @page_title = 'memcached'
+  end
+ 
+  protected
+ 
+  def title(t)
+    @page_title = t
+  end
+ 
+  def subtitle(t)
+    title "#{t} -- stops website death"
+  end
 end

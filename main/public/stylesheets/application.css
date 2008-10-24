@@ -1,0 +1,5 @@
+@import url(blueprint/screen.css);
+body {
+  background: #999; }
+  body #container {
+    background: white; }
