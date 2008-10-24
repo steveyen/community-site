@@ -16,8 +16,10 @@
           %li= link_to 'Home', home_path
           %li= link_to 'About', :controller => '/about'
           %li= link_to 'Download', :controller => '/download'
-          %li= link_to 'Documentation', :controller => '/wiki'
-          %li= link_to 'Mailing List', :controller => '/mailing_list'
+          %li
+            <a href="http://code.google.com/p/memcached/wiki/Welcome">Documentation</a>
+          %li
+            <a href="http://groups.google.com/group/memcached">Mailing List</a>
  
       .content= yield
  
