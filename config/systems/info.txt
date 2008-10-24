@@ -1,3 +1,4 @@
-assigned port: 4010
-
-
+2008/10/23
+  on bunker metaha northscale org
+  assigned port: 4010
+    used for rails mongrel process
