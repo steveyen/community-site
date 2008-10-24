@@ -1,43 +1,70 @@
-The server is licensed under the BSD License.
+.download
+  .left
+    %h2
+      Download memcached Server
 
-Main (1.2.x) series:
+    %p
+      The server is licensed under the BSD License.
+    
+    Main (1.2.x) series:
+    %ul
+      %li
+        <a href="dist/memcached-1.2.6.tar.gz">memcached-1.2.6.tar.gz</a> -- 
+        2008/07/29 [<a href="http://danga.com/memcached/news.bml">Changes</a>] 
+    
+    Old (1.1.x) series, now maintenance releases only:
+    %ul
+      %li
+        <a href="dist/memcached-1.1.13.tar.gz">memcached-1.1.13.tar.gz</a> -- 
+        2006/09/09 [<a href="http://code.sixapart.com/svn/memcached/tags/1.1.13/ChangeLog">Changes</a>] 
 
-%p
-  memcached-1.2.6.tar.gz -- July 29, 2008 [Changes] 
+    Archive of  
+    %a{:href => 'http://danga.com/memcached/dist/'}
+      previous versions
+    
+    %h2
+      Server source repository
 
-Old (1.1.x) series, now maintenance releases only:
+    Subversion
+    %ul
+      %li
+        <a href="http://code.sixapart.com/svn/memcached/">Subversion repository</a> 
+        [<a href="http://code.sixapart.com/trac/memcached/log">svn log</a>]
+   
+    Git
+    %ul
+      %li
+        <a href="http://consoleninja.net/code/memcached/memcached.git">
+        Git stable tree</a> 
+        [<a href="http://consoleninja.net/gitweb/gitweb.cgi?p=memcached.git;a=summary">gitweb</a>]
+      %li
+        <a href="http://github.com/dustin/memcached/tree/master">
+        Dustin salling's tree</a> (master binary protocol branch)
+      %li
+        <a href="http://github.com/tmaesaka/memcached/tree/master">
+        Toru Maesaka's tree</a> (master storage engine branch)
+    
+    .example
+      Quick git tutorial: 
+      %pre
+        :preserve
+          git clone http://consoleninja.net/code/memcached/memcached.git
+          // 'master' is tracking stable upstream.
+          // create a branch:
+          git checkout -b newbranch
+          // work work work, and then:
+          git commit -a
+          // update the tree:
+          git pull
+      Working with a branch tree:
+      %pre
+        :preserve
+          git clone git://github.com/dustin/memcached.git
+          git branch -r (show remote branches)
+          git checkout --track -b lbinary dustin/binary
+          etc.
 
-%p
-  memcached-1.1.13.tar.gz -- Sep 9, 2006 [Changes] 
+    <a href="http://git-scm.com">Git documentation</a><br/>
 
-Subversion
+  .right= render :partial => "shared/download"
 
-Subversion repository [svn log] 
-
-Git
-
-%p
-  Git stable tree [gitweb] 
-
-%p
-  Dustin salling's tree (master binary protocol branch) 
-
-%p
-  Toru Maesaka's tree (master storage engine branch) 
-
-Quick git tutorial: git clone http://consoleninja.net/code/memcached/memcached.git
-'master' is tracking stable upstream.
-create a branch:
-git checkout -b newbranch
-work work work
-git commit -a
-update the tree:
-git pull
-
-Working with a branch tree:
-git clone git://github.com/dustin/memcached.git
-git branch -r (show remote branches)
-git checkout --track -b lbinary dustin/binary
-etc.
-Intro to git for SVN users
-Git documentation

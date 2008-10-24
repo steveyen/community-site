@@ -2,8 +2,11 @@
 
 a
   :text-decoration none
-a:hover
-  :text-decoration underline
+  &:hover
+    :text-decoration underline
+
+.clear
+  :clear both
 
 .container
   :max-width 650px
@@ -29,8 +32,8 @@ a:hover
     :border-top 1px solid #e0e0ff
     :padding-top 15px
   .footer
-    :clear both
-    :margin 40px 0 0 0
+    :margin 80px 0 0 0
+    :border-top 1px solid #e0e0ff
     :font-size 0.8em
 
 .left
@@ -100,6 +103,23 @@ a:hover
     a
       :font-size 1.2em
       :font-weight bold
+
+.download
+  .left
+    :width 425px
+    :padding 0 0
+    h2
+      :margin-top 1em
+      :margin-bottom .5em
+      :background #e0e0ff
+      :border-bottom 2px dotted blue
+      :padding 1px 0 1px 0.5em
+      :font-size 13pt
+      :font-style italic
+      :font-weight bold
+  .right
+    :width 170px
+    :padding 0 15px 0 15px 
   
 .download_block
   :width 170px
@@ -160,7 +180,7 @@ blockquote
   :margin-bottom .5em
   :background #e0e0ff
   :border-bottom 2px dotted blue
-  :padding-left 0.5em
+  :padding 1px 0 1px 0.5em
   :font-size 13pt
   :font-style italic
   :font-weight bold
