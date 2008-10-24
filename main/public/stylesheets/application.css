@@ -3,3 +3,6 @@ body {
   background: #999; }
   body #container {
     background: white; }
+
+.question {
+  font-weight: bold; }

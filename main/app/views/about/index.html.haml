@@ -1,12 +1,221 @@
-#portrait
-  %a{:href => '/about'}
-    %img{:src => "/images/logo.gif", :alt => "Memcached"}
- 
-%p
-  Some paragraph here.
-  With lots of content.
- 
-%p
-  Some paragraph here.
-  With lots of content.
- 
+.question
+  What is memcached?
+
+.answer
+  memcached is a high-performance, distributed memory object caching system, 
+  generic in nature, but intended for use in speeding up dynamic web applications 
+  by alleviating database load.
+
+.answer
+  %a{:href => 'http://danga.com'}
+    Danga Interactive
+  developed memcached to enhance the speed of 
+  %a{:href => 'http://livejournal.com'}
+    LiveJournal.com
+  , a site which was already doing 20 million+ dynamic page views per day 
+  for 1 million users with a bunch of webservers and a bunch of database servers. 
+  memcached dropped the database load to almost nothing, 
+  yielding faster page load times for users, 
+  better resource utilization, and faster access to the databases on a memcache miss.
+
+.question
+  How it Works
+
+.answer
+  First, you start up the memcached daemon on as many spare machines as you have. 
+  The daemon has no configuration file, just a few command line options, 
+  only 3 or 4 of which you'll likely use:
+
+  .answerre = ./memcached -d -m 2048 -l 10.0.0.40 -p 11211
+
+  This starts memcached up as a daemon, using 2GB of memory, 
+  and listening on IP 10.0.0.40, port 11211. 
+  Because a 32-bit process can only address 4GB of virtual memory 
+  (usually significantly less, depending on your operating system), 
+  if you have a 32-bit server with 4-64GB of memory using PAE 
+  you can just run multiple processes on the machine, 
+  each using 2 or 3GB of memory.
+
+.question
+  Using the memcached API
+
+.answer
+  Now, in your application, wherever you go to do a database query, 
+  first check the memcache. 
+  If the memcache returns an undefined object, then go to the database, 
+  get what you're looking for, and put it in the memcache:
+
+  %h3
+    Perl Example (see APIs page)
+
+  .answerre
+    :plain
+      sub get_foo_object {
+        my $foo_id = int(shift);
+        my $obj = $::MemCache->get("foo:$foo_id");
+        return $obj if $obj;
+
+        $obj = $::db->selectrow_hashref("SELECT .... FROM foo f, bar b ".
+                                        "WHERE ... AND f.fooid=$foo_id");
+        $::MemCache->set("foo:$foo_id", $obj);
+        return $obj;
+      \}
+
+  If your internal API was already clean enough, you should only 
+  have to do this in a few spots.  
+  Start with the queries that kill your database the most, 
+  then move to doing as much as possible.
+
+  You'll notice the data structure the memcached server provides is just a dictionary. 
+  You assign values to keys, and you request values from keys.
+
+  Now, what actually happens is that the API hashes your key to a unique server. 
+  (You define all the available servers and their weightings when initializing the API.) 
+  Alternatively, the APIs also let you provide your own hash value. 
+  A good hash value for user-related data is the user's ID number. 
+  Then, the API maps that hash value onto a server (modulus number of server buckets, 
+  one bucket for each server IP/port, 
+  but some can be weighted heigher if they have more memory available).
+
+  If a host goes down, the API re-maps that dead host's requests 
+  onto the servers that are available.
+
+.question
+  Shouldn't the database do this?
+
+.answer
+  Regardless of what database you use 
+  (MS-SQL, Oracle, Postgres, MySQL-InnoDB, etc..), 
+  there's a lot of overhead in implementing ACID properties in a RDBMS, 
+  especially when disks are involved, which means queries are going to block. 
+  For databases that aren't ACID-compliant (like MySQL-MyISAM), 
+  that overhead doesn't exist, 
+  but reading threads block on the writing threads.
+
+  memcached never blocks. See the "Is memcached fast?" question below.
+
+.question
+  What about shared memory?
+
+.answer
+  The first thing people generally do is cache things within their web processes. 
+  But this means your cache is duplicated multiple times, 
+  once for each mod_perl/PHP/etc thread. 
+  This is a waste of memory and you'll get low cache hit rates. 
+  If you're using a multi-threaded language or a shared memory API (IPC::Shareable, etc), 
+  you can have a global cache for all threads, 
+  but it's per-machine. 
+  It doesn't scale to multiple machines. 
+  Once you have 20 webservers, 
+  those 20 independent caches start to look just as silly as when 
+  you had 20 threads with their own caches on a single box. 
+  (plus, shared memory is typically laden with limitations)
+
+  The memcached server and clients work together to implement 
+  one global cache across as many machines as you have. 
+  In fact, it's recommended you run both web nodes 
+  (which are typically memory-lite and CPU-hungry) 
+  and memcached processes (which are memory-hungry and CPU-lite) 
+  on the same machines. 
+  This way you'll save network ports.
+
+.question
+  What about MySQL 4.x query caching?
+
+.answer
+  MySQL query caching is less than ideal, for a number of reasons:
+
+  %ul
+    %li
+      MySQL's query cache destroys the entire cache 
+      for a given table whenever that table is changed. 
+      On a high-traffic site with updates happening many times per second, 
+      this makes the the cache practically worthless. 
+      In fact, it's often harmful to have it on, 
+      since there's a overhead to maintain the cache.
+    %li
+      On 32-bit architectures, the entire server 
+      (including the query cache) is limited to a 4 GB virtual address space. 
+      memcached lets you run as many processes as you want, 
+      so you have no limit on memory cache size.
+    %li
+      MySQL has a query cache, not an object cache. 
+      If your objects require extra expensive construction 
+      after the data retrieval step, MySQL's query cache can't help you there.
+
+  If the data you need to cache is small and you do infrequent updates, 
+  MySQL's query caching should work for you. If not, use memcached.
+
+.question
+  What about database replication?
+
+.answer
+  You can spread your reads with replication, 
+  and that helps a lot, 
+  but you can't spread writes (they have to process on all machines) 
+  and they'll eventually consume all your resources. 
+  You'll find yourself adding replicated slaves at an ever-increasing 
+  rate to make up for the diminishing returns each additional slave provides.
+
+  The next logical step is to horizontally partition your dataset 
+  onto different master/slave clusters so you can spread your writes, 
+  and then teach your application to connect to the correct cluster 
+  depending on the data it needs.
+
+  While this strategy works, and is recommended, more databases 
+  (each with a bunch of disks) statistically leads to more 
+  frequent hardware failures, which are annoying.
+
+  With memcached you can reduce your database reads to a mere fraction, 
+  leaving the databases to mainly do infrequent writes, 
+  and end up getting much more bang for your buck, 
+  since your databases won't be blocking themselves doing ACID 
+  bookkeeping or waiting on writing threads.
+
+.question
+  Is memcached fast?
+
+.answer
+  Very fast. 
+  It uses libevent to scale to any number of open connections 
+  (using epoll on Linux, if available at runtime), 
+  uses non-blocking network I/O, 
+  refcounts internal objects 
+  (so objects can be in multiple states to multiple clients), 
+  and uses its own slab allocator and hash table so 
+  virtual memory never gets externally fragmented 
+  and allocations are guaranteed O(1).
+
+.question
+  What about race conditions?
+
+.answer
+  You might wonder: 
+  \"What if the get_foo() function adds a stale version of the 
+  Foo object to the cache right as/after the user updates 
+  their Foo object via update_foo()?"
+
+  While the server and API only have one way to get data from the cache, 
+  there exists 3 ways to put data in:
+
+  %ul
+    %li
+      set -- unconditionally sets a given key 
+      with a given value (update_foo() should use this)
+    %li
+      add -- adds to the cache, 
+      only if it doesn't already exist (get_foo() should use this)
+    %li
+      replace -- sets in the cache 
+      only if the key already exists (not as useful, only for completeness)
+
+  Additionally, all three support an expiration time.
+
+.question
+  Need help? Have questions?
+
+.answer
+  Join the 
+  %a{:href => 'mailing_list'}
+    mailing list
+  \! We'd love to help you out.
