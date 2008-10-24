@@ -1,11 +1,8 @@
-@import blueprint/screen.css
+@import blueprint/src/reset.css
+@import blueprint/src/typography.css
 
 body
-  :margin 0
   :padding-top 20px
-  :background white
-
-body
   .header
     .header_title
       :color #7070d0
@@ -27,24 +24,23 @@ body
   .container
     :max-width 650px
     :margin auto
-    :background white
-    :padding 0
   .footer
     :clear both
     :margin 40px 0 0 0
     :font-size 0.8em
 
 .question
-  :margin 0 0.5em 0 0
-  :border-bottom 2px dotted blue
+  :margin-top 1em
+  :margin-bottom .5em
   :background #e0e0ff
+  :border-bottom 2px dotted blue
   :padding-left 0.5em
   :font-size 13pt
   :font-style italic
   :font-weight bold
 
 .answer
-  :margin 1em 2em 1em 2em
+  :padding .5em 2em .5em 2em
   .example
     :margin-top 10px
     :background #d0d0f0
