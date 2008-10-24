@@ -68,5 +68,16 @@
 
     <a href="http://git-scm.com">Git documentation</a><br/>
 
-  .right= render :partial => "shared/download"
+  .right
+    = render :partial => "shared/download"
+
+    .download_clients
+      %h2 
+        Client Libraries
+      .download_clients_center
+        Download 
+        %a{:href => 'http://code.google.com/p/memcached/wiki/Clients'}
+          client libraries
+        for your favorite programming language
+        (php, ruby, python, perl, C/C++, C#, and more)
 
