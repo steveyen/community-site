@@ -1,5 +1,10 @@
 @import blueprint/screen.css
 
+a
+  :text-decoration none
+a:hover
+  :text-decoration underline
+
 .container
   :max-width 650px
   :margin auto
@@ -13,7 +18,6 @@
       :font-weight bold
       a
         :color #7070d0
-        :text-decoration none
     ul
       :text-align center
       :width auto
@@ -42,63 +46,63 @@
   :margin 0 0 10px 0
   :padding 10px 15px 10px 15px
 
-.top_blocks
-  .left
-    :width 240px
-    :height 180px
-    :background #e0e0ff
-    h1
-      :font-size 1.8em
-      :font-weight bold
-      :padding-top 10px
-      :padding-bottom 10px
-  .middle
-    :width 130px
-    :height 180px
-    h2
-      :font-size 1.2em
-      :font-weight bold
-  .right
-    :width 170px
-    :height 180px
-    :background #a0e0b0
-    h2
-      :font-size 1.2em
-      :font-weight bold
-
-.mid_blocks
-  :clear both
-  :padding-top 15px
-  .left
-    :width 440px
-    :padding 0 0
-    h2
-      :margin 0 0
-      :padding .2em 1em .2em 1em
+.welcome
+  .top_blocks
+    .left
+      :width 240px
+      :height 180px
       :background #e0e0ff
-      :color #7070d0
-      :font-size 1.2em
-      :font-weight bold
-      a
+      h1
+        :font-size 1.8em
+        :font-weight bold
+        :padding-top 10px
+        :padding-bottom 10px
+    .middle
+      :width 130px
+      :height 180px
+      h2
+        :font-size 1.2em
+        :font-weight bold
+    .right
+      :width 170px
+      :height 180px
+      :background #a0e0b0
+      h2
+        :font-size 1.2em
+        :font-weight bold
+  
+  .mid_blocks
+    :clear both
+    :padding-top 15px
+    .left
+      :width 440px
+      :padding 0 0
+      h2
+        :margin 0 0
+        :padding .2em 1em .2em 1em
+        :background #e0e0ff
         :color #7070d0
-        :text-decoration none
-        :font-weight normal
-        :font-size .75em
-  .right
-    :width 170px
-    :padding 0 15px 0 15px
-    h2
+        :font-size 1.2em
+        :font-weight bold
+        a
+          :color #7070d0
+          :font-weight normal
+          :font-size .75em
+    .right
+      :width 170px
+      :padding 0 15px 0 15px
+      h2
+        :font-size 1.2em
+        :font-weight bold
+  
+  .bottom_blocks
+    :clear both
+    :background #c0c0ff
+    :padding 10px 0 10px 0
+    :text-align center
+    a
       :font-size 1.2em
       :font-weight bold
-
-.bottom_blocks
-  :clear both
-  :background #c0c0ff
-  :padding 10px 0 10px 0
-  :text-align center
-  a
-    :font-size 1.2em
-    :font-weight bold
   
 .download_block
   :height 120px
@@ -122,7 +126,6 @@
   :clear both
   :margin-top 15px
   a
-    :text-decoration none
     :color #7070d0
   img
     :float left
@@ -141,7 +144,6 @@ blockquote
     :display block
     :text-align right
     a
-      :text-decoration none
       :font-weight normal
 
 .have_questions
@@ -150,7 +152,6 @@ blockquote
 .production_users
   a
     :font-weight bold
-    :text-decoration none
 
 .question
   :margin-top 1em
