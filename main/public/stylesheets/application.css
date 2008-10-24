@@ -1,18 +1,43 @@
 @import url(blueprint/screen.css);
 body {
-  font-family: verdana;
-  background: #efefef; }
+  margin: 0;
+  padding: 30px;
+  background: white; }
 
+body .header .header_title {
+  margin-bottom: 0;
+  color: #7070d0;
+  letter-spacing: 0.1em;
+  text-align: center;
+  width: auto;
+  font-size: 20pt;
+  font-weight: bold; }
 body .container {
-  max-width: 800px;
+  max-width: 700px;
   margin: auto;
   background: white;
   padding-left: 1em;
   padding-right: 1em; }
+body .footer {
+  margin: 40px 0 0 0;
+  font-size: 0.8em; }
 
 .question {
-  margin-top: 5px;
+  margin: 1em 0 0.5em -0.7em;
+  border-bottom: 2px dotted blue;
+  background: #e0e0ff;
+  padding-left: 0.5em;
+  font-size: 13pt;
+  font-style: italic;
   font-weight: bold; }
 
 .answer {
-  margin-left: 20px; }
+  margin: 0 10px 10px 20px; }
+  .answer .example {
+    margin-top: 10px;
+    background: #d0d0f0;
+    padding-left: 10px;
+    font-family: sans-serif;
+    font-weight: bold; }
+    .answer .example pre {
+      background: #e0e0e0; }

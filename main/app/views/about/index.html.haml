@@ -7,12 +7,10 @@
   by alleviating database load.
 
 .answer
-  %a{:href => 'http://danga.com'}
-    Danga Interactive
+  <a href="http://danga.com">Danga Interactive</a>
   developed memcached to enhance the speed of 
-  %a{:href => 'http://livejournal.com'}
-    LiveJournal.com
-  , a site which was already doing 20 million+ dynamic page views per day 
+  <a href="http://livejournal.com">LiveJournal.com</a>, 
+  a site which was already doing 20 million+ dynamic page views per day 
   for 1 million users with a bunch of webservers and a bunch of database servers. 
   memcached dropped the database load to almost nothing, 
   yielding faster page load times for users, 
@@ -28,6 +26,7 @@
 
   %pre ./memcached -d -m 2048 -l 10.0.0.40 -p 11211
 
+.answer
   This starts memcached up as a daemon, using 2GB of memory, 
   and listening on IP 10.0.0.40, port 11211. 
   Because a 32-bit process can only address 4GB of virtual memory 
@@ -45,30 +44,33 @@
   If the memcache returns an undefined object, then go to the database, 
   get what you're looking for, and put it in the memcache:
 
-  %h3
+  .example
     Perl Example (see APIs page)
 
-  %pre
-    :preserve
-      sub get_foo_object {
-        my $foo_id = int(shift);
-        my $obj = $::MemCache->get("foo:$foo_id");
-        return $obj if $obj;
-        
-        $obj = $::db->selectrow_hashref("SELECT .... FROM foo f, bar b ".
-                                        "WHERE ... AND f.fooid=$foo_id");
-        $::MemCache->set("foo:$foo_id", $obj);
-        return $obj;
-      \}
+    %pre
+      :preserve
+        sub get_foo_object {
+          my $foo_id = int(shift);
+          my $obj = $::MemCache->get("foo:$foo_id");
+          return $obj if $obj;
+          
+          $obj = $::db->selectrow_hashref("SELECT .... FROM foo f, bar b ".
+                                          "WHERE ... AND f.fooid=$foo_id");
+          $::MemCache->set("foo:$foo_id", $obj);
+          return $obj;
+        }
 
+.answer
   If your internal API was already clean enough, you should only 
   have to do this in a few spots.  
   Start with the queries that kill your database the most, 
   then move to doing as much as possible.
 
+.answer
   You'll notice the data structure the memcached server provides is just a dictionary. 
   You assign values to keys, and you request values from keys.
 
+.answer
   Now, what actually happens is that the API hashes your key to a unique server. 
   (You define all the available servers and their weightings when initializing the API.) 
   Alternatively, the APIs also let you provide your own hash value. 
@@ -77,6 +79,7 @@
   one bucket for each server IP/port, 
   but some can be weighted heigher if they have more memory available).
 
+.answer
   If a host goes down, the API re-maps that dead host's requests 
   onto the servers that are available.
 
@@ -111,6 +114,7 @@
   you had 20 threads with their own caches on a single box. 
   (plus, shared memory is typically laden with limitations)
 
+.answer
   The memcached server and clients work together to implement 
   one global cache across as many machines as you have. 
   In fact, it's recommended you run both web nodes 
@@ -157,15 +161,18 @@
   You'll find yourself adding replicated slaves at an ever-increasing 
   rate to make up for the diminishing returns each additional slave provides.
 
+.answer
   The next logical step is to horizontally partition your dataset 
   onto different master/slave clusters so you can spread your writes, 
   and then teach your application to connect to the correct cluster 
   depending on the data it needs.
 
+.answer
   While this strategy works, and is recommended, more databases 
   (each with a bunch of disks) statistically leads to more 
   frequent hardware failures, which are annoying.
 
+.answer
   With memcached you can reduce your database reads to a mere fraction, 
   leaving the databases to mainly do infrequent writes, 
   and end up getting much more bang for your buck, 
@@ -195,6 +202,7 @@
   Foo object to the cache right as/after the user updates 
   their Foo object via update_foo()?"
 
+.answer
   While the server and API only have one way to get data from the cache, 
   there exists 3 ways to put data in:
 
@@ -215,7 +223,5 @@
   Need help? Have questions?
 
 .answer
-  Join the 
-  %a{:href => 'mailing_list'}
-    mailing list
-  \! We'd love to help you out.
+  Join the <a href="mailing_list">mailing list</a>!
+  We'd love to help you out.
