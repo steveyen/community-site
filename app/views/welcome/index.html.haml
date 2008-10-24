@@ -28,18 +28,7 @@
       %li
         and <a href="/about/users">many others</a>
 
-  .right
-    %h2
-      Download memcached
-    .download_block
-      The latest release is
-      .release_number
-        v1.2.6
-      .release_notes
-        <a href="#">release notes</a> - 2008/09/10
-      .download_options
-        <a href="#">Other download options</a>
-        <a href="#">Source and History</a>
+  .right= render :partial => "shared/download"
 
 .mid_blocks
   .left
