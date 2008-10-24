@@ -1,6 +1,8 @@
 @import blueprint/screen.css
 
-body
+.container
+  :max-width 650px
+  :margin auto
   .header
     .header_title
       :color #7070d0
@@ -19,35 +21,54 @@ body
         :display inline
         :padding-left .5em
         :padding-right .5em
-  .container
-    :max-width 650px
-    :margin auto
+  .content
+    :border-top 1px solid #e0e0ff
+    :padding-top 15px
   .footer
     :clear both
     :margin 40px 0 0 0
     :font-size 0.8em
 
-.headline
+.left
+  :float left
+  :margin 0 10px 10px 0
+  :padding 10px 15px 10px 15px
+.middle
+  :float left
+  :margin 0 10px 10px 0
+  :padding 10px 15px 10px 15px
+.right
+  :float left
+  :margin 0 0 10px 0
+  :padding 10px 15px 10px 15px
+
+.top_blocks
   .left
-    :float left
-    :width 240px
-    :margin 0 10px 10px 0
+    :width 220px
+    :height 200px
     :background #e0e0ff
-    .padded
-      :padding 15px 15px 15px 15px
   .middle
-    :float left
-    :width 180px
-    :margin 0 10px 10px 0
-    .padded
-      :padding 15px 15px 15px 15px
+    :width 140px
+    :height 200px
+    h2
+      :font-size 1.2em
+      :font-weight bold
   .right
-    :float left
-    :width 200px
-    :margin 0 0
-    :background #f0d0d0
-    .padded
-      :padding 15px 15px 15px 15px
+    :width 180px
+    :height 200px
+    :background #a0e0b0
+    h2
+      :font-size 1.2em
+      :font-weight bold
+
+.download_block
+  :height 140px
+  :background #e0e0ff
+  :padding 10px 15px 10px 15px
+  .release_number
+    :font-weight bold
+    :font-size 1.2em
+    :text-align center
 
 .quickstart
   :clear both
