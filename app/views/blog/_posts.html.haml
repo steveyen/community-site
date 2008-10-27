@@ -65,6 +65,39 @@
 
 .blog_post
   %h3
+    %a{:href => 'http://100days.de/serendipity/archives/55-Dumping-MemcacheD-Content-Keys-with-PHP.html'}
+      Dumping MemcacheD Content (Keys) with PHP
+  %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
+
+  MemcacheD is a very cool piece of software. 
+  When i did some optimization of a cluster based webapp lately, 
+  i was wondering how Memcache was speading my cache entries over the cluster. 
+  So i did some research for monitoring tools. 
+  A simple approach to monitoring would be to use Cacti to monitor status values like Cache usage, 
+  hits/sec etc. 
+  This can be done by a template like this. 
+  An alternative was provided by Harun Yayli: 
+  His memcache.php which somewhat resembles the APC status page 
+  and now is a part of PECL/memcache is easy to setup and works well. 
+  It also allows to dive into the data structures but you need to decide for one server first, 
+  then click into a "Slab" and then you see the keys. 
+  <br/><br/>
+  Inspired by this, i wrote a small script that fetches all data from a memcache cluster, 
+  gets all keys out of it and then sorts and displays them in a list. 
+  Yes it it ugly and yes: the memcacheD is not answering other requests while doing a cachedump. 
+  But i found it very useful. 
+
+  %a{:href => "http://100days.de/serendipity/archives/55-Dumping-MemcacheD-Content-Keys-with-PHP.html"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://100days.de/serendipity'}
+      Gaylord Aulke
+    on: 2008/08/28
+
+.blog_post
+  %h3
     %a{:href => 'http://dormando.livejournal.com/496639.html'}
       Should you cache?
   %img{:src => 'http://p-userpic.livejournal.com/66703879/3594'}
@@ -318,7 +351,7 @@
   .blog_post_about
     Posted by: 
     %a{:href => 'http://blog.leetsoft.com'}
-      Tobias Lütke
+      Tobias L&uuml;tke
     on: 2007/05/22
 
 .blog_post
@@ -340,3 +373,4 @@
     %a{:href => 'http://errtheblog.com'}
       Chris Wanstrath
     on: 2007/05/21
+
