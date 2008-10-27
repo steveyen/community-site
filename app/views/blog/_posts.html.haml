@@ -137,6 +137,54 @@
 
 .blog_post
   %h3
+    %a{:href => 'http://www.grepmymind.com/2008/04/14/mysql-conf-2008-memcached-day-1/'}
+      MySQL Conf 2008 - Memcached (Day 1)
+  %img{:src => 'http://profile.ak.facebook.com/profile5/390/16/s582491693_5344.jpg'}
+
+  The session I'm attending this afternoon is Memcached and MySQL: 
+  Everything You Need To Know. 
+  I'm really looking forward to this talk. 
+  For whatever geeky reason I think Memcached is the coolest. ;)
+  
+  %a{:href => "http://www.grepmymind.com/2008/04/14/mysql-conf-2008-memcached-day-1/"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://www.grepmymind.com'}
+      Michael Tougeron
+    on: 2008/04/14
+
+.blog_post
+  %h3
+    %a{:href => 'http://broddlit.wordpress.com/2008/04/09/memcached-as-simple-message-queue/'}
+      memcached as simple message queue
+  %img{:src => 'http://a.wordpress.com/avatar/i730-48.jpg'}
+
+  Some months ago at work we were in the need of a message queue, 
+  a very simple one, basically just a message buffer. 
+  The idea is simple, the webservers send there messages to the queue, 
+  the queue always accepts all messages and 
+  waits until the ETL processes request messages for further processing. 
+  As the webservers are time critical and the ETL processes aren't you need something in between.
+  <br/><br/>
+  We realized that there are not too many solutions out there for this kind of problem. 
+  Although we found a fully featured message queue from the Apache Foundation, 
+  called ActiveMQ. 
+  This one had far too many features for us, 
+  but as long as you can use it in a simple way why not give it a try?
+  
+  %a{:href => "http://broddlit.wordpress.com/2008/04/09/memcached-as-simple-message-queue/"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://broddlit.wordpress.com'}
+      Olly
+    on: 2008/04/09
+
+.blog_post
+  %h3
     %a{:href => 'http://dormando.livejournal.com/485610.html'}
       Memcached 1.2.5
   %img{:src => 'http://p-userpic.livejournal.com/66703879/3594'}
@@ -183,6 +231,25 @@
 
 .blog_post
   %h3
+    %a{:href => 'http://www.grepmymind.com/2008/01/11/memcached-php-semaphore-cache-expiration-handling/'}
+      memcached PHP semaphore &amp; cache expiration handling
+  %img{:src => 'http://profile.ak.facebook.com/profile5/390/16/s582491693_5344.jpg'}
+
+  There are a lot of different ways that people use memcached and PHP. 
+  <br/><br/>
+  The most common of which is probably your basic set and get to cache data from your database.
+  
+  %a{:href => "http://www.grepmymind.com/2008/01/11/memcached-php-semaphore-cache-expiration-handling/"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://www.grepmymind.com'}
+      Michael Tougeron
+    on: 2008/01/11
+
+.blog_post
+  %h3
     %a{:href => 'http://dormando.livejournal.com/482494.html'}
       Happy new year! DPM, memcached, etc
   %img{:src => 'http://p-userpic.livejournal.com/66703879/3594'}
@@ -226,3 +293,50 @@
       Bob Warfield
     on: 2007/09/23
 
+.blog_post
+  %h3
+    %a{:href => 'http://blog.leetsoft.com/2007/5/22/the-secret-to-memcached'}
+      The Secret to Memcached
+  %img{:src => 'http://tbn0.google.com/images?q=tbn:Ktj_oxmvQ9OOFM:http://farm2.static.flickr.com/1006/826974041_30c0a61732.jpg%3Fv%3D0'}
+
+  Memcached has long been the answer to most questions containing the word scale. 
+  There are some spectacular memcached installations out there. 
+  Facebook is said to run a 200 server with 3TB of memory solely for servicing memcached; 
+  Shopify, twitter, digg, Slashdot and just about every other public facing application 
+  depends on it. 
+  Facebook's installation is said to deliver a 99% cache hit rate 
+  while servicing tens of thousands of requests a second.
+  <br/><br/> 
+  There are many ways to use this elaborate hash table and 
+  many ways which are more trouble then they are worth. 
+  In our experience the key to use memcached effectively is 
+  to ask it for the exact thing you want, but i'm getting ahead of myself.
+
+  %a{:href => 'http://blog.leetsoft.com/2007/5/22/the-secret-to-memcached'}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://blog.leetsoft.com'}
+      Tobias Lütke
+    on: 2007/05/22
+
+.blog_post
+  %h3
+    %a{:href => 'http://errtheblog.com/posts/57-kickin-ass-w-cachefu'}
+      Kickin Ass w/ Cache-Fu
+  %img{:src => 'http://s3.amazonaws.com/twitter_production/profile_images/58344962/rock_bigger.jpg'}
+
+  Between all the post-punk marching bands, free booze, and falls off fire escapes, 
+  I somehow managed to give a presentation on memcached at RailsConf 2007.
+  <br/><br/> 
+  I've got two versions of my slides available: with notes and without notes.
+  
+  %a{:href => 'http://errtheblog.com/posts/57-kickin-ass-w-cachefu'}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://errtheblog.com'}
+      Chris Wanstrath
+    on: 2007/05/21
