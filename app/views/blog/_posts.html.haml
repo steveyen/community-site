@@ -144,6 +144,32 @@
 
 .blog_post
   %h3
+    %a{:href => 'http://www.pablowe.net/2008/07/06/memcached/'}
+      Memcached 
+  %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
+
+  The other day I was watching a 
+  Memcached Webinar sponsored by MySQL, 
+  and it got me thinking about memcached from an operational perspective.
+  <br/><br/>
+  It seems to me that the implementation patterns for memcached 
+  are fairly well codified in the standard body of knowledge. 
+  What does NOT appear to be in the standard BoK is how to 
+  build a supporting infrastructure behind memcached to 
+  ensure that it is an effective and reliable component 
+  of the application architecture.
+
+  %a{:href => "http://www.pablowe.net/2008/07/06/memcached/"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://www.pablowe.net'}
+      Pablowe
+    on: 2008/07/06
+
+.blog_post
+  %h3
     %a{:href => 'http://alexle.net/archives/275'}
       Installing Memcached from Source on CentOS 5 
   %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
@@ -325,6 +351,35 @@
     %a{:href => 'http://smoothspan.wordpress.com'}
       Bob Warfield
     on: 2007/09/23
+
+.blog_post
+  %h3
+    %a{:href => 'http://www.search-this.com/2007/07/24/an-introduction-to-memcached/'}
+      An Introduction to memcached
+  %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
+
+  "Caching" is a term you've probably heard mentioned before in various 
+  places (including this site). 
+  The idea behind caching is to store a copy of some 
+  piece of data so you can re-use it again later 
+  without jumping through whatever hoops you had to go through 
+  the first time to get it. 
+  There are different ways you can cache data (queries, objects, etc) 
+  and different medium in which you can store 
+  the cache (files, database, memory). 
+  Any way you do it, the main goal of caching is to 
+  increase the performance of your site or application. 
+  In many cases caching is used to lessen the amount of interaction with the database, 
+  which increases performance and decreases the load on your server.
+
+  %a{:href => 'http://www.search-this.com/2007/07/24/an-introduction-to-memcached/'}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://www.search-this.com'}
+      MrSpooky
+    on: 2007/07/24
 
 .blog_post
   %h3
