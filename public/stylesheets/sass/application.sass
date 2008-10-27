@@ -63,6 +63,13 @@ a
     a
       :font-weight bold
 
+blockquote
+  label
+    :display block
+    :text-align right
+    a
+      :font-weight normal
+
 .welcome
   .top_blocks
     a
@@ -120,6 +127,9 @@ a
       h2
         :font-size 1.2em
         :font-weight bold
+        :padding 15px 0 0 20px
+      p
+        :padding 0 0 0 20px
   
   .bottom_blocks
     :clear both
@@ -206,18 +216,16 @@ a
   :clear both
   :margin-top 5px
 
-blockquote
-  label
-    :display block
-    :text-align right
-    a
-      :font-weight normal
-
-.have_questions
-  :padding 15px 0 0 20px
+.about,
+.production_users
+  img 
+    :float right
+    :width 150px
+    :padding 5px 0px 5px 20px
 
 .production_users
   li
+    :clear both
     :font-style italic
     a
       :display block
