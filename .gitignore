@@ -1,5 +1,6 @@
 **~
 log/*.log
 db/*
+public/**.html
 public/stylesheets/*.css
 
