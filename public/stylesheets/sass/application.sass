@@ -3,7 +3,7 @@
 a
   :text-decoration none
   &:hover
-    :text-decoration underline
+    :text-decoration none
 
 .clear
   :clear both
@@ -104,9 +104,9 @@ a
       :font-size 1.2em
       :font-weight bold
 
-.download
+.download,
+.support
   .left
-    :width 425px
     :padding 0 0
     h2
       :margin-top 1em
@@ -117,10 +117,27 @@ a
       :font-size 13pt
       :font-style italic
       :font-weight bold
+    h3
+      :margin-top 1em
+      :margin-bottom .5em
+      :font-size 13pt
+      :font-style italic
+      :font-weight bold
   .right
-    :width 170px
     :padding 0 15px 0 15px 
   
+.support
+  .left
+    :width 355px
+  .right
+    :width 240px
+
+.download
+  .left
+    :width 425px
+  .right
+    :width 170px
+
 .download_block
   :width 170px
   :height 180px
@@ -144,15 +161,27 @@ a
 .download_clients
   :margin-top 20px
   :width 170px
-  :height 180px
   :background #e0b0a0
   :padding 10px 15px 10px 15px
   h2
     :font-size 1.2em
     :font-weight bold
   .download_clients_center
-    :height 120px
     :background #e0e0ff
+    :padding 10px 15px 10px 15px
+    :text-align center
+    a
+      :font-weight bold
+
+.small_block
+  :margin-bottom 20px
+  :background #e0e0ff
+  :padding 10px 15px 10px 15px
+  h2
+    :font-size 1.2em
+    :font-weight bold
+  .small_block_center
+    :background white
     :padding 10px 15px 10px 15px
     :text-align center
     a
