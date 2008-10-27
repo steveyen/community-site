@@ -1,32 +1,29 @@
 %li
   %a{:href => "http://www.livejournal.com"}
     LiveJournal
-  \-- 
-  fully dynamic blogging site with insane number of unnecessary features, 
+  "fully dynamic blogging site with insane number of unnecessary features, 
   doing over 20 million hits per day.  
   We made memcached for LiveJournal and 
   we hardly ever hit the databases anymore.  
   A few APIs in our codebase still unconditionally hit our databases, 
   but they're being rewritten to be memcached-aware.  
   memcached made a night-and-day difference 
-  in the speed of our site.  
+  in the speed of our site."  
 %li
   %a{:href => "http://www.slashdot.org"}
     Slashdot
-  \-- 
-  I showed Jamie McCarthy memcached at OSCON 2003 and 
+  "I showed Jamie McCarthy memcached at OSCON 2003 and 
   how we use it on LiveJournal (including our memcached-farm stats page) 
   and he started frothing at the mouth and began implementing 
   it that night in his hotel room.  
   Now Slashdot uses it for caching comments in their rendered form, 
   saving both DB load and web CPU load.  
   They're reportedly working on using memcached
-  in more parts of their code.  
+  in more parts of their code."  
 %li
   %a{:href => "http://www.wikipedia.org"}
     WikiPedia
-  \-- 
-  Brion Vibber added support to WikiPedia's MediaWiki backend.  
+  "Brion Vibber added support to WikiPedia's MediaWiki backend."
 %li
   %a{:href => "http://www.facebook.com"}
     Facebook
@@ -45,46 +42,41 @@
 %li
   %a{:href => "http://www.vampirefreaks.com"}
     VampireFreaks
-  \--
-  <i>"Hey man. I just wanted to thank you for memcached, I just started
+  "Hey man. I just wanted to thank you for memcached, I just started
   using it on http://vampirefreaks.com , a site which gets over a
   million page hits a day and has been really slowing down the server.
   I've already implemented memcached in a few key spots which determine
   the number of users online as well as the number of current users, and
   it seems to have helped a lot, I am sure I will be putting it into
   more parts of the code as well.  Feel free to put us on the memcached
-  users page if you like."</i>  
+  users page if you like."  
 %li
   %a{:href => "http://www.sourceforge.net"}
     SourceForge
 %li
   %a{:href => "http://www.revelex.com"}
     Revelex
-  \--
-  <i>"... We have tried using MySQL, NFS-mounted flat-files and 
+  "... We have tried using MySQL, NFS-mounted flat-files and 
   even NFS-mounted RAM drives to no avail. 
-  To date, only memcached has been able to keep up with our needs. ..."</i>  
+  To date, only memcached has been able to keep up with our needs. ..."  
 %li
   %a{:href => "http://www.howardstern.com"}
     HowardStern.com
-  \--
-  <i>"We've been struggling to keep the hardware matched to the traffic
+  "We've been struggling to keep the hardware matched to the traffic
   level and ever-growing database size. I've now implemented memcached
   across major sections of the site and the vBulletin-based forum. We're
   using three memcached servers to support the one large mySQL server.
   The performance improvement has been tremendous and it allows me to
   have an elegant memory caching solution always available instead of
-  my own cache on the webservers' filesystems, as I had been doing."</i>
+  my own cache on the webservers' filesystems, as I had been doing."
 %li
   %a{:href => "http://www.kayak.com"}
     Kayak.com
-  \--
   "memcached allowed Kayak.com to increase capacity of our 
   real-time flight and hotel search engine by one order of magnitude."
 %li
   %a{:href => "http://www.fotolog.com"}
     Fotolog.com
-  \--
   "I have a new memcached user to add to your list: we here at Fotolog, the
   world's largest photo blogging community, now use it and we love it.  I just rolled our first code to use it into production
   today and it has been a lifesaver.  I can't wait to start using it in places where we had been relying on Berkeley databases to
@@ -126,3 +118,9 @@
 %li
   %a{:href => "http://www.reddit.com"}
     Reddit.com
+%li
+  %a{:href => "http://www.shopify.com"}
+    Shopify.com
+%li
+  %a{:href => "http://www.basecamphq.com"}
+    Basecamp
