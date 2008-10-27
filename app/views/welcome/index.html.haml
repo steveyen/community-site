@@ -34,72 +34,11 @@
   .mid_blocks
     .left
       %h2
-        Blogs | <a href="#">View all &raquo;</a>
+        Blogs | <a href="/blog">View all &raquo;</a>
   
-      .blog_entries
-        .blog_entry
-          %h3
-            %a{:href => 'http://amix.dk/blog/viewEntry/19356'}
-              A peek at memcached's implementation 
-          %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
-  
-          I am a huge fan of memcached and we use it a lot on Plurk.
-          <br/><br/>
-          Why to like memcached:  
-  
-          %a{:href => "http://amix.dk/blog/viewEntry/19356"}
-            Read more &raquo;
-  
-          .blog_author
-            Posted by: 
-            %a{:href => 'http://amix.dk/'}
-              Amir Salihefendic
-  
-        .blog_entry
-          %h3
-            %a{:href => 'http://dormando.livejournal.com/496639.html'}
-              Should you cache?
-          %img{:src => 'http://p-userpic.livejournal.com/66703879/3594'}
-  
-          Should you use memcached? Should you just shard mysql more?
-          <br/><br/>
-          Memcached's popularity is expanding its use into some odd places. 
-          It's becoming an authoritative datastore for some large sites, 
-          and almost more importantly it's sneaking into the lowly web startup. 
-          This is causing some discussion.
-  
-          %a{:href => "http://dormando.livejournal.com/496639.html"}
-            Read more &raquo;
-  
-          .blog_author
-            Posted by: 
-            %a{:href => 'http://dormando.livejournal.com/'}
-              Alan Kasindorf
-  
-        .blog_entry
-          %h3
-            %a{:href => 'http://alexle.net/archives/275'}
-              Installing Memcached from Source on CentOS 5 
-          %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
-  
-          This is a quick summary for this process so that 
-          I can refer to it later on, 
-          and hopefully someone will find it useful as well.
-          <br/><br/>
-          Memcached requires libevent to handle its network IO stuff. 
-          The bundled libevent in the standard yum repository is old 
-          so it's pretty useless. 
-          The newer versions memcached runs on newer libevent library 
-          so I ended up compiling libevent and memcached from the 
-          latest stable sources. 
-  
-          %a{:href => "http://alexle.net/archives/275"}
-            Read more &raquo;
-  
-          .blog_author
-            Posted by: 
-            %a{:href => 'http://alexle.net/'}
-              Alex Le
+      .answer
+        .blog_entries
+          = render :partial => "blog/posts"
   
     .right
       %blockquote

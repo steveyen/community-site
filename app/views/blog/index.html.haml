@@ -1,0 +1,8 @@
+.blog
+  .left
+    %h2
+      memcached community blogs
+    .answer
+      .blog_entries
+        = render :partial => "posts"
+  .right= render :partial => "shared/download"
