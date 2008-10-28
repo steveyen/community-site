@@ -198,6 +198,41 @@
 
 .blog_post
   %h3
+    %a{:href => 'http://www.philchen.com/2008/06/18/how-much-can-a-memcached-server-handle/'}
+      How much can a memcached server handle?
+  %img{:src => 'http://www.philchen.com/globalimages/pclogo.gif'}
+
+  Memcached is a high-performance, distributed memory object caching system. 
+  It is used in a wide range of sites such as livejournal.com and facebook.com 
+  as a way to alleviate database load helping to speed up sites. 
+  Memcached is usually deployed as an adequate subset of servers 
+  in relation to your application and database infrastructure. 
+  It's a great way to cut down your database calls by caching the requests.
+  <br/><br/>
+  The servers are not load balanced in any least connections or 
+  response time fashion, but instead using a Hashing/Key Distribution. 
+  So in other words it spreads out cache across all the 
+  memcached servers not redundantly. 
+  A hash table allows the application to locate where cache exists. 
+  Utilizing a lazy expiration, cpu is not a factor for expiring items. 
+  An item gets requested it checks the expiration time to see 
+  if the item is still valid prior to returning it to the client. 
+  When adding a new item to the cache, 
+  if the cache is full it will look out for expired items 
+  to replace before replacing the least used items in the cache. 
+  You can read more about it at the memcached site.
+
+  %a{:href => "http://www.philchen.com/2008/06/18/how-much-can-a-memcached-server-handle/"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://www.philchen.com'}
+      Phil Chen
+    on: 2008/06/18
+
+.blog_post
+  %h3
     %a{:href => 'http://alexle.net/archives/275'}
       Installing Memcached from Source on CentOS 5 
   %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}
