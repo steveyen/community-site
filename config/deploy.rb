@@ -4,7 +4,7 @@ set :runner,      "metaha"
 set :use_sudo,    false
 set :deploy_to,   "/users/home/#{user}/domains/northscale.org/site"
 set :application, "community-site"
-set :repository,  "git@github.com:steveyen/community-site.git"
+set :repository,  "git://github.com/steveyen/community-site.git"
 
 set :scm,    :git
 set :branch, "master"
