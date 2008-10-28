@@ -1,0 +1,140 @@
+.download_changes
+  .left
+    %h2
+      memcached Server Change History 
+
+    .answer
+      Source repository <a href="http://consoleninja.net/gitweb/gitweb.cgi?p=memcached.git;a=blob_plain;f=ChangeLog;hb=HEAD">detailed change log</a>.
+      <br/><br/>
+
+      %dl
+        %dt
+          2008-07-29:
+          Version 1.2.6 <a href="/download">released</a>.
+        %dd
+          Major crash fixes, DTrace support, minor updates. If you have stability issues
+          with any previous release, please upgrade to this one.
+          
+        %dt
+          2008-03-04:
+          Version 1.2.5 <a href="/download">released</a>.
+        %dd
+          Minor bugfixes, build support for opensolaris, ipv6 support,  "noreply" mode
+          for many commands, largepage support for solaris. Made out of memory errors
+          more clear and added eviction/OOM tracking per slab class.
+          
+        %dt
+          2007-12-06:
+          Version 1.2.4 <a href="/download">released</a>.
+        %dd
+          Many bug and platform fixes since 1.2.2. New threading support for stat
+          queries. New commands 'append', 'prepend', 'gets', and 'cas'.
+          
+        %dt
+          2007-05-02:
+          Version 1.2.2 <a href="/download">released</a>.
+        %dd
+          Memcached can be configured to support multithreading.  Big code cleanup with 
+          performance improvements.  Memcached now collects eviction and per-object-type 
+          statistics.
+          
+        %dt
+          2006-12-05:
+          Version 1.2.1 released.
+        %dd
+          Various perfomance improvements.  OpenBSD portability fixes.  New faster hash
+          function.  Memcached no longer listens for UDP requests by
+          default.  
+          
+        %dt
+          2006-09-09:
+          Version 1.2.0 released.
+        %dd
+          Improved memory efficiency of up to 40%.  Better support for large
+          memory systems.  CPU consuption is reduced 25-30%.  New UDP interface.        
+          
+        %dt
+          2006-09-09:
+          Version 1.1.13 <a href="/download">released</a>.
+        %dd
+          Building is easier, libevent detection is improved, better Solaris
+          support.  Fixed some 64-bit issues, fixed a number of off-by-one bugs.
+          Fix for confusing out of memory errors.  New feature that allows you
+          to execute a flush_all at a specific time.  Make stderr unbuffered.
+          
+        %dt
+          2005-04-04:
+          Version 1.1.12 released.
+        %dd
+          Fixes for flush_all, immediate deletes and a buffer overflow.  The man
+          page now installs correctly.  Memcached now saves a .pid file.  More
+          documentation added for the -M and -r flags.
+          
+        %dt
+          2004-04-30:
+          Version 1.1.11 released.  
+        %dd
+          New option (off by default) to not
+          act as a cache, but hold items forever until deleted (or until machine
+          goes down, rather).  This release also installs the manual page, and
+          raises the per-process file descriptor limit to match the specified
+          max connections.
+          
+        %dt
+          2003-12-30:
+          Version 1.1.10 released.  
+        %dd
+          Now includes a command to wipe
+          the entire cache.
+          
+        %dt
+          2003-10-09:
+          Version 1.1.9 released
+        %dd
+          Now with better network performance,
+          better portability, setuid support, and a fix for a rare crash
+          (SIGPIPE) if a client dies.
+          
+        %dt
+          2003-08-08:
+        %dd
+          We now have <a href="http://code.google.com/p/memcached/wiki/Clients">Python support</a>.
+          
+        %dt
+          2003-07-29:
+          Version 1.1.8 released.
+        %dd
+          The client APIs are now distributed separately.
+          
+        %dt
+          2003-06-30:
+          Version 1.1.6 released.  
+        %dd
+          Many great changes.
+          
+        %dt
+          2003-06-16:
+        %dd
+          <a href="http://code.google.com/p/memcached/wiki/Clients">PHP support</a> now included.
+          
+        %dt
+          2003-06-15:
+        %dd
+          Autoconf support added in 1.0.2 release.  Website text updated a bit.
+          
+        %dt
+          2003-06-10:
+        %dd
+          Website not so bad now.  Files licensed.  Perl
+          API separated and documented.  1.0 release.
+          
+        %dt
+          2003-05-30:
+        %dd
+          Server's stable.  Perl API's still LJ-specific
+          (just need to just change the package name, basically).  Other APIs
+          should be easy to bang out.  This website needs work.
+
+  .right
+    = render :partial => "shared/download"
+    = render :partial => "shared/download_clients"

@@ -12,14 +12,15 @@
         %li
           %b
             <a href="dist/memcached-1.2.6.tar.gz">memcached-1.2.6.tar.gz</a> 
-          \-- 2008/07/29 [<a href="http://danga.com/memcached/news.bml">Changes</a>] 
+          \-- 2008/07/29 [<a href="/download/changes">Changes</a>] 
       
       Old (1.1.x) series, now maintenance releases only:
       %ul
         %li
           %b
             <a href="dist/memcached-1.1.13.tar.gz">memcached-1.1.13.tar.gz</a> 
-          \-- 2006/09/09 [<a href="http://code.sixapart.com/svn/memcached/tags/1.1.13/ChangeLog">Changes</a>] 
+          \-- 2006/09/09 
+          [<a href="http://code.sixapart.com/svn/memcached/tags/1.1.13/ChangeLog">Changes</a>] 
   
       Archive of  
       %a{:href => 'http://danga.com/memcached/dist/'}
@@ -72,14 +73,4 @@
 
   .right
     = render :partial => "shared/download"
-
-    .small_block.download_clients
-      %h2 
-        Download Clients
-      .small_block_center.download_clients_center
-        Download 
-        %a{:href => 'http://code.google.com/p/memcached/wiki/Clients'}
-          client libraries
-        for your favorite programming language
-        (php, ruby, python, perl, C/C++, C#, and more)
-
+    = render :partial => "shared/download_clients"
