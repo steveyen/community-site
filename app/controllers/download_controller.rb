@@ -1,4 +1,6 @@
 class DownloadController < ApplicationController
+  caches_page :index, :changes
+
   def index
   end
 
