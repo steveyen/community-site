@@ -16,14 +16,18 @@ class DocController < ApplicationController
   protected
 
   def process_doc_page(doc_name, page_name)
-    x = load_doc_page(doc_name, page_name)
-    return nil if x.nil?
+    page_raw = load_doc_page(doc_name, page_name)
+    return nil if page_raw.nil?
+    process_doc_page_raw(doc_name, page_name, page_raw)
+  end
     
+  def process_doc_page_raw(doc_name, page_name, page_raw)
     # Convert from bare-minimum code.google.com wiki format to html,
     # where ordering of these regexps is important.
     #
     # TODO: One day just convert all the wiki pages to haml?
     #
+    x = page_raw
     x = x.gsub(/^$/, '<p/>') 
     x = x.gsub(/^http:([^ ]+?)$/, "<a href=\"http:\\1\">http:\\1</a>")
     x = x.gsub(/ http:([^ ]+?)$/, " <a href=\"http:\\1\">http:\\1</a>")
@@ -55,12 +59,14 @@ class DocController < ApplicationController
 
   def load_doc_page(doc_name, page_name)
     valid_name_re = '^[A-Za-z_0-9]+$'
+    config        = ActiveRecord::Base.configurations[RAILS_ENV]
+    db_doc_path   = config['db_doc_path'] || "#{RAILS_ROOT}/db_doc"
 
     return nil if doc_name.nil? or page_name.nil?
     return nil unless doc_name.match(valid_name_re)
     return nil unless page_name.match(valid_name_re)
 
-    path = "#{RAILS_ROOT}/db_doc/#{doc_name}/#{page_name}.wiki"
+    path = "#{db_doc_path}/#{doc_name}/#{page_name}.wiki"
     return nil unless File.exists?(path)
 
     IO.read(path)
