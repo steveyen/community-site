@@ -10,7 +10,7 @@ memcached is a high-performance, distributed memory object caching system, gener
 
 == Where can I get memcached? == 
 
-memcached can be downloaded from its official [http://www.danga.com/memcached/download.bml download page] -- http://www.danga.com/memcached/download.bml
+Follow the pointers from the [/download download page].
 
 == How can I install memcached? == 
 
@@ -26,11 +26,16 @@ If you have a high-traffic site that is dynamically generated with a high databa
 
 == Why should I not use memcached? ==
 
-[WhyNotMemcached Why not use memcached]
+Answered on this [WhyNotMemcached page].
 
 == How do I access memcached? == 
 
-Typically, you use a client library from your application to access one or more memcached servers. See http://www.socialtext.net/memcached/index.cgi?clients or http://danga.com/memcached/apis.bml for a list of available libraries, which are available for Perl, C, C#, PHP, Python, Java, Ruby, and Postgresql Stored Procedures and Triggers. You can also write your own client library using the memcached protocol documentation found here: http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
+Typically, you use a client library from your application to access one or more memcached servers. 
+
+The [Clients] page has list of available API libraries, 
+which are available for Perl, C, C#, PHP, Python, Java, Ruby, and Postgresql Stored Procedures and Triggers. 
+
+You can also write your own client library using the memcached protocol documentation found here: http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt
 
 == How can I use memcached as a database? == 
 
