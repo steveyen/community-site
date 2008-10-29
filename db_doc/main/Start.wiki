@@ -3,7 +3,7 @@
 ----
  * [FAQ]
 
- * [Client Client API's] - list of client API's in various languages (for [http://pecl.php.net/package/memcache php], etc)
+ * [Clients Client API's] - list of client API's in various languages (for [http://pecl.php.net/package/memcache php], etc)
 
  * Server ports / other platforms for the server
   * [http://www.lullabot.com/articles/setup-memcached-mamp-sandbox-environment Mac OS X]
