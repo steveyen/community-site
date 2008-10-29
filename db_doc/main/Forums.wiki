@@ -1,0 +1,11 @@
+= Mailing Lists =
+
+http://groups.google.com/group/memcached
+  * official mailing list for developers and users, since July 2008
+
+[http://lists.danga.com/pipermail/memcached mailing list archives] with lots of classic, good advice, before July 2008
+
+= IRC =
+
+irc.freenode.net #memcached
+
