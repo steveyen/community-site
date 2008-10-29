@@ -9,6 +9,7 @@
   * [http://www.lullabot.com/articles/setup-memcached-mamp-sandbox-environment Mac OS X]
   * [PlatformWindows Windows]
   * [PlatformSolaris Solaris]
+  * [PlatformBSD BSD]
 
  * [http://www.socialtext.net/memcached/index.cgi?hackathon Hackathons] - dates and topics on the proposed hackathons. Also, notes from previous hackathons.
 
