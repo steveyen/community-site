@@ -10,7 +10,7 @@ libmemcache http://people.freebsd.org/%7Eseanc/libmemcache by Sean Chittenden; B
 
 apr_memcache http://www.outoforder.cc/projects/libs/apr_memcache by Paul Querna; Apache Software License version 2.0
 
-!MemCacheClient http://code.jellycan.com/memcacheclient (cross-platform, but primary focus on Windows
+MemCacheClient http://code.jellycan.com/memcacheclient (cross-platform, but primary focus on Windows
 
 libketama http://www.last.fm/user/RJ/journal/2007/04/10/rz_libketama (the original consistent hashing algorithm from last.fm)
 
