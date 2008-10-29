@@ -71,3 +71,5 @@ Rails::Initializer.run do |config|
     File.directory?(lib = "#{dir}/lib") ? lib : dir
   end
 end
+
+ENV['RECAPTCHA_PUBLIC_KEY'] = '6Ld6tAMAAAAAAL0JNHvwAUu9CzJZScF6zgYdYpjG'

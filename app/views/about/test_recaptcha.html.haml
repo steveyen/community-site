@@ -1,0 +1,22 @@
+%h1
+  test recaptcha
+
+%h2
+  current time
+
+= Time.now
+
+<hr/>
+
+%h2
+  test form
+
+<form action="/about/test_recaptcha_go" action="post">
+%p
+  x: <input type="text" name="x"/>
+%p
+  = recaptcha_tags
+%p
+  <input type="submit"/>
+</form>
+
