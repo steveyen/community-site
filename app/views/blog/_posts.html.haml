@@ -1,5 +1,32 @@
 .blog_post
   %h3
+    %a{:href => 'http://tomayko.com/writings/rack-cache-announce'}
+      Introducing Rack::Cache
+  %img{:src => 'http://www.gravatar.com/avatar/d04461373056d945b72ff912851ea1c9?s=200'}
+
+  I'm pleased to finally release a side-project 
+  I've been whittling away at for a few months: 
+  Rack::Cache is a piece of Rack middleware that implements 
+  most of RFC 2616's caching features with a 
+  basic set of storage options (disk, heap, and memcached) 
+  and a configuration system for tweaking cache policy. 
+  It should work equally well with any Rack-enabled 
+  Ruby web framework and is tested on Ruby 1.8.6 and 1.8.7.
+  <br/><br/>
+  Rack::Cache relies entirely on standard HTTP headers 
+  produced by your application. It has no application level caching API.
+
+  %a{:href => "http://tomayko.com/writings/rack-cache-announce"}
+    Read more &raquo;
+
+  .blog_post_about
+    Posted by: 
+    %a{:href => 'http://tomayko.com'}
+      Ryan Tomayko
+    on: 2008/10/24
+
+.blog_post
+  %h3
     %a{:href => 'http://amix.dk/blog/viewEntry/19356'}
       A peek at memcached's implementation 
   %img{:src => 'http://tbn0.google.com/images?q=tbn:4fi33HXx0UfzkM:http://forums.cacti.net/files/memcached_933.jpg'}

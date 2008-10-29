@@ -62,9 +62,12 @@ Python libmemcached
 cmemcache
  * http://gijsbert.org/cmemcache/index.html
 
+Django's caching framework works with memcached
+ * http://docs.djangoproject.com/en/dev/topics/cache/
+
 = Ruby =
 
-cache_fu 
+cache_fu Rails plugin works with memcached
  * http://github.com/defunkt/cache_fu/tree/master
  * http://errtheblog.com/posts/57-kickin-ass-w-cachefu
  * http://blog.onmylist.com/articles/2007/06/15/memcached-and-cache_fu
