@@ -5,22 +5,19 @@ class DocController < ApplicationController
   end
 
   def show
-    render_doc_page params[:doc], params[:page]
+    @doc_name       = params[:doc]  || 'main'
+    @page_name      = params[:page] || 'Start'
+    @page_name_nice = @page_name.gsub(/([a-z])([A-Z])/, '\1 \2')
+    @page_body      = process_doc_page(@doc_name, @page_name)
+
+    redirect_to :action => 'index' if @page_body.nil?
   end
 
   protected
 
-  def render_doc_page(doc_name, page_name)
-    x = process_doc_page(doc_name, page_name)
-    if x.nil?
-      redirect_to :action => 'index' 
-    else
-      render :text => x, :layout => true
-    end
-  end
-
   def process_doc_page(doc_name, page_name)
     x = load_doc_page(doc_name, page_name)
+    return nil if x.nil?
     
     # Convert from bare-minimum code.google.com wiki format to html,
     # where ordering of these regexps is important.
@@ -53,7 +50,7 @@ class DocController < ApplicationController
 
     x = x.gsub(/<\/li><\/ul>\n<ul><li>/, "<\/li><\/ul>\n<ul class=\"inner0\"><li>")
 
-    return "<div class=\"doc\">\n#{x}\n</div>"
+    return x
   end
 
   def load_doc_page(doc_name, page_name)

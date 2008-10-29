@@ -35,6 +35,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
+  map.connect 'doc/',           :controller => 'doc', :action => 'show'
+  map.connect 'doc/:doc',       :controller => 'doc', :action => 'show'
   map.connect 'doc/:doc/:page', :controller => 'doc', :action => 'show'
 
   map.home '', :controller => 'welcome'

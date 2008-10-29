@@ -1,0 +1,10 @@
+.doc_page
+  .doc_page_about
+    Documentation:
+    %a{:href => "/doc/#{@doc_name}/Start"}
+      main
+    \/
+    %a{:href => "/doc/#{@doc_name}/#{@page_name}"}= @page_name_nice
+
+  .doc_page_body= @page_body
+
