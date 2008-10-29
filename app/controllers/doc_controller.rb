@@ -33,7 +33,7 @@ class DocController < ApplicationController
     x = x.gsub(/\[([^ ]+?) ([^\]]+?)\]/,      "<a href=\"/doc/#{doc_name}/\\1\">\\2</a>")
     x = x.gsub(/^#summary (.*)$/, '<h1>\1</h1>')
     x = x.gsub(/^#labels (.*)$/, '')
-    x = x.gsub(/----/, '<hr/>') 
+    x = x.gsub(/^----$/, '<hr/>') 
     x = x.gsub(/^=== (.*) ===\s*$/, '<h4>\1</h4>')
     x = x.gsub(/^== (.*) ==\s*$/, '<h3>\1</h3>')
     x = x.gsub(/^= (.*) =\s*$/, '<h2>\1</h2>')
