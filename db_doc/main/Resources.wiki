@@ -1,4 +1,5 @@
-= Resources / Articles / Books =
+#summary Resources / Articles / Books 
+
  * [http://linuxjournal.com/article/7451 LinuxJournal article by Brad Fitzpatrick] (2004) 
  * [http://www.slideshare.net/vishnu/livejournals-backend-a-history-of-scaling LiveJournal's Backend A History of Scaling]
  * [http://highscalability.com/bunch-great-strategies-using-memcached-and-mysql-better-together fotolog's memcached usage and patterns] (2008)

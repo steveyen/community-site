@@ -1,4 +1,4 @@
-#summary List of Client API's / libraries
+#summary Client API's / libraries
 
 = C / C++ =
 

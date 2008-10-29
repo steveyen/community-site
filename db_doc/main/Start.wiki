@@ -1,25 +1,29 @@
 #summary memcached Documentation
-----
 
-[FAQ] &nbsp;&nbsp;|&nbsp;&nbsp; 
-[HowTo How To's] &nbsp;&nbsp;|&nbsp;&nbsp; 
-[Tutorials] &nbsp;&nbsp;|&nbsp;&nbsp; 
-[Resources]
+= General =
+ * [FAQ]
+ * [HowTo How To's]
+ * [Tutorials]
+ * [Resources]
 
-[Clients Client API's] - list of client API's in various languages (for [http://pecl.php.net/package/memcache php], etc)
+[Clients Client API's] - list of client libraries for your favorite programming language
 
-Server ports / other platforms for the server
+= Server ports to other platforms =
+
+memcached was originally created and maintained for the [/download Linux] OS.
  * [http://www.lullabot.com/articles/setup-memcached-mamp-sandbox-environment Mac OS X]
  * [PlatformWindows Windows]
  * [PlatformSolaris Solaris]
  * [PlatformBSD BSD]
 
-[Forums] -- mailing list, irc
+= Get in touch with the community =
+
+[Forums] -- mailing list, IRC 
 
 [http://www.socialtext.net/memcached/index.cgi?hackathon Hackathons] - 
 dates and topics on the proposed hackathons and previous hackathon notes
 
-Wire Protocols
+= Wire Protocols =
  * [http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt text protocol] - current memcached networking protocol
  * [MemcacheBinaryProtocol binary protocol] - forthcoming, optional protocol in development
   * [http://www.slideshare.net/tmaesaka/memcached-binary-protocol-in-a-nutshell-presentation/ slides on the binary protocol] by Toru Maesaka (2008)
