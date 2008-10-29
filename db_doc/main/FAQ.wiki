@@ -39,7 +39,7 @@ If you want to use memcached as a _data store_ instead of a cache, you should us
 
 == Can I iterate the items of the memcached server? == 
 
-No. memcached doesn't support that and it's not a planned feature. It would be a relatively slow and blocking operation (compared to everything else memcached is doing). See above, it's a cache, not a database. [http://meta.wikimedia.org/wiki/Tugela_Cache Tugela] and [http://memcachedb.org memcachedb]are memcached derived systems that are slower but slightly more like a database.
+No. memcached doesn't support that and it's not a planned feature. It would be a relatively slow and blocking operation (compared to everything else memcached is doing). See above, it's a cache, not a database. [http://meta.wikimedia.org/wiki/Tugela_Cache Tugela] and [http://memcachedb.org memcachedb] are memcached derived systems that are slower but slightly more like a database.
 
 Of course it's all software, so ultimately in a way the answer is "yes", but for anything but a development or test server it will be slow and _block the server_ while processing, so for 99.9% of real deployments the answer 
 is no.
