@@ -1,5 +1,4 @@
-#summary frequently asked questions
-#labels Featured
+#summary Frequently Asked Questions
 
 = General Questions =
 
@@ -162,15 +161,15 @@ Technically, yes, but the two issues you may run into are as follows:
 Consistent hashing algorithms are a new approach to managing the first-layer hashing system for memcached clients.
 A good post (and library) explaining its usage has been "posted by http://www.last.fm/user/RJ/journal/2007/04/10/392555
 
-= Managing a memcached cluster =
+== Client FAQ ==
+
+See also: [http://www.socialtext.net/memcached/index.cgi?memcached_client_faq Client FAQ]
 
 = Memcached Options =
 
 If you want to learn about memcached's options, just run memcached -h. It will give you a brief output of options. You can fiddle with the options to easily learn how they work.
 
 There is also a memcached(1) manpage which (should) come with the memcached distrobution.
-
-= Hashing/Key Distribution =
 
 = Item Expiration =
 
@@ -201,11 +200,11 @@ Example, in PHP, for using a namespace called foo:
 
 <pre>
 $ns_key = $memcache->get("foo_namespace_key");
-
 // if not set, initialize it
 if($ns_key===false) $memcache->set("foo_namespace_key", rand(1, 10000));
-
+// cleverly use the ns_key
 $my_key = "foo_".$ns_key."_12345";
+$my_val = $memcache->get($my_key);
 
 //To clear the namespace do:
 $memcache->increment("foo_namespace_key");
@@ -225,7 +224,6 @@ Query caching is the storage of an entire result set from a given query. It is b
 
 <pre>
 $key = md5('SELECT * FROM rest_of_sql_statement_goes_here');
-
 if ($memcache->get($key)) {
  return $memcache->get($key);
 }
@@ -407,8 +405,5 @@ Remember nothing is stopping you from accidentally connecting many times. If you
 
  * creating keys for caching queries
  * getting stale entries when a memcached server flaps in and out of the cluster
- * What platforms do you know that memcached was used on besides Linux (Solaris, AIX, HPUX, SCO)?
 
-= Client FAQ =
 
- [http://www.socialtext.net/memcached/index.cgi?memcached_client_faq Client FAQ]
