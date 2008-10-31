@@ -4,7 +4,8 @@
   %head
     %title= @page_title || 'Community Site'
     = stylesheet_link_tag 'application.css', :media => 'screen, projection'
-    = stylesheet_link_tag 'application-print.css', :media => 'print'
+    #
+      = stylesheet_link_tag 'application-print.css', :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'application-ie.css', :media => 'screen, projection'
     = yield :more_head
@@ -21,7 +22,7 @@
             <a href="/doc/main/Start">Documentation</a>
           %li
             <a href="/doc/main/Discuss">Discuss</a>
-          %li= link_to 'Contact', :controller => '/support'
+          %li= link_to 'Contact', :controller => '/contact'
  
       .content= yield
       .clear

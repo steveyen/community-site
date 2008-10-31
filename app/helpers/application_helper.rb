@@ -5,8 +5,8 @@ module ApplicationHelper
     ActiveRecord::Base.configurations[RAILS_ENV]['site_domain_name']
   end
 
-  def support_email_address
-    'support@' + site_domain_name
+  def contact_email_address
+    'contact@' + site_domain_name
   end
 
   def blog_posts(offset = 0, limit = 3)
