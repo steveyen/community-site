@@ -1,0 +1,32 @@
+= Mailing Lists =
+
+http://groups.google.com/group/memcached
+  * the official mailing list for developers and users, since July 2008
+
+[http://lists.danga.com/pipermail/memcached mailing list archives] 
+  * lots of classic, good advice, before July 2008
+
+= IRC =
+
+irc.freenode.net #memcached
+
+= Talks =
+
+A lot of people in the community talk about memcached 
+at all sorts of great conferences and events. 
+If you do talk about memcached, 
+we encourage you to upload your presentation on SlideShare 
+and tag it 'memcached'. 
+This allows everyone to easily find presentations about 
+[http://www.slideshare.net/search/slideshow?lang=en&q=memcached memcached].
+
+= Blogging =
+
+When blogging, we recommend that you use the tag 'memcached' 
+so that your posts are picked up by the community. 
+
+= Hackathons =
+
+[http://www.socialtext.net/memcached/index.cgi?hackathon Hackathons] - 
+dates and topics on the proposed hackathons and previous hackathon notes
+

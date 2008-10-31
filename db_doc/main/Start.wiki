@@ -16,13 +16,6 @@ memcached was originally created and maintained for the [/download Linux] OS.
  * [PlatformSolaris Solaris]
  * [PlatformBSD BSD]
 
-= Get in touch with the community =
-
-[Forums] -- mailing list, IRC 
-
-[http://www.socialtext.net/memcached/index.cgi?hackathon Hackathons] - 
-dates and topics on the proposed hackathons and previous hackathon notes
-
 = Wire Protocols =
  * [http://code.sixapart.com/svn/memcached/trunk/server/doc/protocol.txt text protocol] - current memcached networking protocol
  * [MemcacheBinaryProtocol binary protocol] - forthcoming, optional protocol in development
