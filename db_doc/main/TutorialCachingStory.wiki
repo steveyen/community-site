@@ -10,22 +10,22 @@ Our plucky Sysadmin eyes his webservers, of which he has six. He decides to use 
 
 Our adventurous Programmer grabs the pecl/memcache client library manual, which the plucky Sysadmin has helpfully installed on all SIX webservers. "Never fear!" he says. "I've got an idea!" He takes the IP addresses and port numbers of the THREE memcacheds and adds them to an array in php.
 
-<pre>
+{{{
 $MEMCACHE_SERVERS = array(
     "10.1.1.1", //web1
     "10.1.1.2", //web2
     "10.1.1.3", //web3
 );
-</pre>
+}}}
 
 Then he makes an object, which he cleverly calls '$memcache'.
 
-<pre>
+{{{
 $memcache = new Memcache();
 foreach($MEMCACHE_SERVERS as $server){
     $memcache->addServer ( $server );
 }
-</pre>
+}}}
 
 Now Programmer thinks. He thinks and thinks and thinks. "I know!" he says. "There's this thing on the front page that runs `SELECT * FROM hugetable WHERE timestamp > lastweek ORDER BY timestamp ASC LIMIT 50000;` and it takes five seconds!" "Let's put it in memcached," he says. So he wraps his code for the SELECT and uses his $memcache object. His code asks:
 
@@ -33,7 +33,7 @@ Are the results of this select in memcache?
 If not, run the query, take the results, and PUT it in memcache!
 Like so:
 
-<pre>
+{{{
 $huge_data_for_frong_page = $memcache->get("huge_data_for_frong_page");
 if($huge_data_for_frong_page === false){
     $huge_data_for_frong_page = array();
@@ -47,7 +47,7 @@ if($huge_data_for_frong_page === false){
 }
 
 // use $huge_data_for_frong_page how you please
-</pre>
+}}}
 
 Programmer pushes code. Sysadmin sweats. BAM! DB load is down to 10! The website is pretty fast now. So now, the Sysadmin puzzles, "What the HELL just happened!?" "I put graphs on my memcacheds! I used cacti, and this is what I see! I see traffic to one memcached, but I made three :(." So, the Sysadmin quickly learns the ascii protocol and telnets to port 11211 on each memcached and asks it:
 

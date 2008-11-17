@@ -203,7 +203,7 @@ While memcached does not support any type of wildcard deleting or deletion by na
 
 Example, in PHP, for using a namespace called foo:
 
-<pre>
+{{{
 $ns_key = $memcache->get("foo_namespace_key");
 // if not set, initialize it
 if($ns_key===false) $memcache->set("foo_namespace_key", rand(1, 10000));
@@ -213,7 +213,7 @@ $my_val = $memcache->get($my_key);
 
 //To clear the namespace do:
 $memcache->increment("foo_namespace_key");
-</pre>
+}}}
 
 = Application Design =
 
@@ -227,7 +227,7 @@ $memcache->increment("foo_namespace_key");
 
 Query caching is the storage of an entire result set from a given query. It is best used for queries that are called often but the SQL does not change, such as loading content by a specific set of filters ( e.g., get topics for a specific forum, get products for a category)
 
-<pre>
+{{{
 $key = md5('SELECT * FROM rest_of_sql_statement_goes_here');
 if ($memcache->get($key)) {
  return $memcache->get($key);
@@ -238,7 +238,7 @@ else {
  $memcache->set($key, $result, TRUE, 86400); // Store the result of the query for a day
  return $result;
 }
-</pre>
+}}}
 
 Remember, if the result of this query changes, the results will not show up for a day. This approach isn't always useful, but gets the job done good n' quick.
 
@@ -357,19 +357,19 @@ A combination of both would make for very scalable lists. IDs between a range ar
 
 If you just get started with memcached, you might end up with code which looks similar to this:
 
-<pre>
+{{{
 greet = get("Foo")
 person = get("Bar")
 place = get("Baz")
-</pre>
+}}}
 
 As you scale, you might notice this might come back to this while trying to reduce render time. You'll notice that each of these get() calls will do a full round-trip to memcached:
 
-<pre>
+{{{
 get("Foo") - client - server - client
 get("Bar") - client - server - client
 etc.
-</pre>
+}}}
 
 Most clients support the ability to do multi-key gets, pipelining requests into single memcached instances. Others yet allow for parallel fetches. So if your 3 keys would resolve to 3 different memcached's, the requests all happen in parallel and you end up waiting for the slowest one to return instead of all three independently. If you have many keys to fetch, this can mean a _huge_ difference in speed!
 

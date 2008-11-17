@@ -28,8 +28,8 @@ class DocController < ApplicationController
     # TODO: One day just convert all the wiki pages to haml?
     #
     x = page_raw
-    x = x.gsub(/</, '&lt;');
-    x = x.gsub(/>/, '&gt;');
+    x = x.gsub(/</, '&lt;')
+    x = x.gsub(/>/, '&gt;')
     x = x.gsub(/^$/, '<p/>') 
     x = x.gsub(/^http:([^ ]+?)$/, "<a href=\"http:\\1\">http:\\1</a>")
     x = x.gsub(/ http:([^ ]+?)$/, " <a href=\"http:\\1\">http:\\1</a>")
@@ -48,6 +48,8 @@ class DocController < ApplicationController
     x = x.gsub(/^ \* (.*)$/,   '<ul><li>\1</li></ul>')
     x = x.gsub(/^  \* (.*)$/,  '<ul><li><ul><li>\1</li></ul></li></ul>')
     x = x.gsub(/^   \* (.*)$/, '<ul><li><ul><li><ul><li>\1</li></ul></li></ul></li></ul>')
+    x = x.gsub(/\{\{\{/, '<pre>')
+    x = x.gsub(/\}\}\}/, '</pre>') 
 
     # The handling of nested lists is via a simplest-thing-that-kinda-works
     # hack of using CSS to hide nested bullets.

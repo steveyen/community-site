@@ -1,4 +1,4 @@
-<pre><code>
+{{{
 
 Network Working Group                                         Stone, Ed.
 Internet-Draft                                           Six Apart, Ltd.
@@ -1676,4 +1676,4 @@ Authors' Addresses
 
 
 Stone & Norbye            Expires March 1, 2009                [Page 30]
-</code></pre>
+}}}
