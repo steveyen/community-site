@@ -28,6 +28,8 @@ class DocController < ApplicationController
     # TODO: One day just convert all the wiki pages to haml?
     #
     x = page_raw
+    x = x.gsub(/</, '&lt;');
+    x = x.gsub(/>/, '&gt;');
     x = x.gsub(/^$/, '<p/>') 
     x = x.gsub(/^http:([^ ]+?)$/, "<a href=\"http:\\1\">http:\\1</a>")
     x = x.gsub(/ http:([^ ]+?)$/, " <a href=\"http:\\1\">http:\\1</a>")
